@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Pomodoro App</title>
+    <link rel="stylesheet" href="signup.css"> <!-- Linking to the signup.css -->
+</head>
+<body>
+    <div class="container">
+        <h1>Signup</h1>
+        <div id="signup-form" class="form-container">
+            <form id="signup">
+                <input type="text" id="signup-username" placeholder="Username" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <p>Already have an account? <a href="login">Login</a></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#signup').submit(function(e) {
+            e.preventDefault();
+            $.post('/signup', {
+                username: $('#signup-username').val(),
+                password: $('#signup-password').val(),
+            }, function(response) {
+                alert('User created!');
+                window.location.href = '/dashboard'; // Redirect to login page after signup
+            });
+        });
+    </script>
+</body>
+</html>

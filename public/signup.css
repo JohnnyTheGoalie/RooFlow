@@ -1,0 +1,112 @@
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== BODY STYLES ========== */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f0f4f7, #c6e1f2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ========== HEADINGS ========== */
+.container h1 {
+  font-size: 2rem;
+  color: #2a5298;
+  margin-bottom: 10px;
+}
+
+.form-container h2 {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+/* ========== FORM STYLES ========== */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #2a5298;
+  outline: none;
+  box-shadow: 0 0 5px rgba(42, 82, 152, 0.5);
+}
+
+/* ========== BUTTON ========== */
+button[type="submit"] {
+  background-color: #2a5298;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #1e3c72;
+}
+
+/* ========== FOOTER ========== */
+.container p {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.container a {
+  color: #2a5298;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+
+/* ========== ANIMATION ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,460 @@
+/* === Reset + Base === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #2e2e2e;
+  height: 100vh;
+  background-color: #f7f7f5;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='0.3' fill='%23d8d8d8'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 30px 30px;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
+  line-height: 1.6;
+}
+    
+input:focus {
+  background-color: #ffffff;
+  border: 1px solid #fca17c;
+  box-shadow: 0 0 0 2px #fca17c55;
+  outline: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* === Layout === */
+.main-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* === Sidebar === */
+.sidebar {
+  width: 320px;
+  background-color: #ffffffcc;
+  border-right: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+}
+
+.logo-area img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#folder-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.folder-card {
+  background-color: #f2f1ef;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.folder-card:hover {
+  transform: scale(1.05);
+}
+
+.folder-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.task-count {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 0.3rem;
+}
+
+.new-folder {
+  background: none;
+  border: 1.5px dashed #ccc;
+  padding: 1.5rem;
+  border-radius: 14px;
+  text-align: center;
+  color: #888;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.new-folder:hover {
+  background-color: #f4f4f4;
+}
+
+/* === Content Area === */
+.content {
+  flex: 1;
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/* === Folder Details === */
+#folder-details {
+  max-width: 800px;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#folder-title {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+}
+
+#folder-title:focus {
+  background-color: #FFFFFF;
+  padding: 0.3rem;
+  border-radius: 6px;
+  outline: none;
+}
+
+.icon-btn {
+  font-size: 1.25rem;
+  color: #888;
+  padding: 0.4rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: #eee;
+  color: #222;
+}
+
+#delete-folder.icon-btn {
+  color: #d44;
+}
+
+#delete-folder.icon-btn:hover {
+  background-color: #ffeaea;
+}
+
+/* === Tasks === */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.task-item {
+  background-color: #FFFFFF;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.task-item:hover {
+  background-color: #fefefe;
+}
+
+.task-name {
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  outline: none;
+  cursor: text;
+  font-size: 1rem;
+}
+
+.task-name:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #fca17c55;
+}
+
+/* === Task Actions === */
+.delete-task {
+  font-size: 1rem;
+  color: #d33;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.delete-task:hover {
+  background-color: #ffeded;
+}
+
+/* === Add Task Form === */
+#add-task-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+#new-task-name {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+#add-task-form button {
+  background-color: #fca17c;
+  color: white;
+  padding: 1rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+#add-task-form button:hover {
+  background-color: #f3875e;
+    transform: scale(1.03);
+}
+
+/* === Pomodoro Button === */
+#start-pomodoro {
+  margin: 2.5rem auto 0;
+  background-color: #fca17c;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+#start-pomodoro:hover {
+  background-color: #f2875e;
+  transform: scale(1.03);
+}
+
+/* === Color Picker === */
+.color-picker {
+  margin-top: 2rem;
+}
+
+.color-picker h3 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.color-options {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+.color-swatch.active {
+  border-color: #2e2e2e;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+/* === Animations === */
+.folder-card-new {
+  animation: fadeSlideUp 0.35s ease-out;
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#folder-details.fade-in {
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#no-folder-selected {
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  max-width: 500px;
+  margin: auto;
+}
+
+#no-folder-selected h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+#no-folder-selected p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+#start-guest-mode {
+  background-color: #fca17c;
+  color: white;
+  font-size: 1rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#start-guest-mode:hover {
+  background-color: #f3875e;
+  transform: scale(1.03);
+}
+/* === Folder Switch Animation === */
+.folder-switch-out {
+  animation: fadeOutDown 0.2s forwards;
+}
+
+.folder-switch-in {
+  animation: fadeInUp 0.25s forwards;
+}
+
+@keyframes fadeOutDown {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* === Folder close animation === */
+.folder-close-out {
+  animation: fadeCloseOut 0.25s forwards;
+}
+
+.no-folder-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+@keyframes fadeCloseOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* === Task Animations === */
+.task-item {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.task-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+    transition: opacity 0.25s ease, transform 0.25s ease;   
+}
+
+.logout-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+  background-color: white;
+  color: #f3875e;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  transform: scale(1.05);
+}

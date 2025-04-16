@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Flow</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="top-bar">
+  
+
+  <div class="top-left">
+      <a href="dashboard">
+      <img src="logo.png" alt="Logo" class="logo" />
+      </a>
+  </div>
+        
+    <div class="top-center">
+    <button id="settings-btn" title="Settings">🕒</button>
+  </div>
+
+  <div id="auth-buttons" class="top-right">
+    <button id="login-btn" class="auth-btn">Log In</button>
+    <button id="signup-btn" class="auth-btn hidden">Sign Up</button>
+    <button id="logout-btn" class="auth-btn hidden">Log Out</button>
+  </div>
+</header>
+
+    <div class="floating-toggle" title="Toggle dark mode" hidden>
+      <label class="toggle">
+        <input type="checkbox" id="darkmode-toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    
+  <div class="task-container">
+    <!-- Past Tasks -->
+    <div class="past-tasks" id="past-tasks" style="grid-area: past;">
+    <div id="task-summary" class="task-summary"></div>  
+    </div>
+      
+    <!-- Central Task Box -->
+    <div class="task-box" id="task-box" style="grid-area: task;">
+      <div class="task-box-inner">
+        <div class="task-front">
+          <h1 contenteditable="false" id="task-name">Select a task</h1>
+          <div id="timer" hidden>00:00</div>
+        </div>
+        <div class="task-back" id="task-back">
+            <button id="keep-task">Keep Task</button>
+            <button id="delete-task">Delete Task</button>
+            <button id="add-time-btn">+10 Minutes</button>
+        </div>
+      </div>
+    </div>
+
+      
+    
+    <!-- Task List -->
+    <div class="task-list" id="task-list" style="grid-area: list;"><div class="add-task-section">
+      <input type="text" id="new-task-input" placeholder="Enter new task..." />
+      <button id="add-task-btn">+</button>
+    </div></div>
+  </div>
+    
+    
+    <div id="break-overlay" class="hidden">
+  <div class="break-message">
+    <h1>Break Time ☕</h1>
+    <p id="break-timer">00:00</p>
+    <button id="return-btn">Return</button>
+  </div>
+</div>
+
+<!-- Break Button -->
+<button id="break-btn" class="break-btn">Take a Break</button>
+
+    
+    <div id="settings-modal" class="settings-modal hidden">
+  <div class="settings-content">
+    <h2>Settings</h2>
+    <label for="default-time-input">Default Timer (minutes):</label>
+    <input type="number" id="default-time-input" min="1" max="120" />
+    <div class="settings-actions">
+      <button id="save-settings">Save</button>
+      <button id="cancel-settings">Cancel</button>
+    </div>
+  </div>
+</div>
+
+    
+    <!-- Initial Task Setup Overlay -->
+<div id="task-setup-overlay" class="overlay">
+  <div class="setup-content">
+    <h1>Plan Your Session</h1>
+    <p>Take 5 minutes to add tasks you'd like to accomplish.</p>
+    <div id="setup-timer">05:00</div>
+
+    <div class="add-task-section">
+      <input type="text" id="setup-task-input" placeholder="Add task..." />
+      <button id="setup-add-btn">+</button>
+    </div>
+    <div id="setup-task-list"></div>
+
+    <button id="setup-start-btn">Start Working</button>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

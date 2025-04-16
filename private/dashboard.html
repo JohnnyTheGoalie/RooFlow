@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Pomodoro App</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- Top Navigation -->
+    
+    
+  <main class="main-layout">
+    <!-- Sidebar: Folders -->
+    <aside class="sidebar">
+      <div class="logo-area">
+          <img src="logo.png"></img>
+      </div>      
+      <div id="folder-list">
+        <!-- Special Card: Create New Folder -->
+        <div class="folder-card new-folder" id="create-folder">
+          <span>+ New Folder</span>
+        
+
+
+        <!-- Folder cards (filled via JS) -->
+        <!-- Example folder card structure -->
+        <!--
+        <div class="folder-card" data-folder-id="1" style="background-color: #f9c74f;">
+          <span class="folder-title">Study</span>
+          <span class="task-count">3 Tasks</span>
+        </div>
+        -->
+      </div>
+    </aside>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+    <!-- Content Area: Folder Details or Guest Mode -->
+    <section class="content">
+        
+      <!-- No Folder Selected View -->
+      <div id="no-folder-selected">
+        <h2>Welcome!</h2>
+        <p>Select a folder from the left or</p>
+        <button id="start-guest-mode">Use App Without Folder</button>
+      </div>
+
+      <!-- Folder Details View (hidden by default) -->
+      <div id="folder-details" class="hidden">
+        <div class="folder-header">
+          <input type="text" id="folder-title" value="Folder Name" />
+        <div class="color-picker">
+          <h3>Choose Folder Color</h3>
+          <div class="color-options">
+            <!-- JS will populate these -->
+          </div>
+        </div>
+
+        <button id="delete-folder" class="icon-btn" title="Delete Folder">🗑️</button>
+        <button id="close-folder" class="icon-btn" title="Close Folder">×</button>
+        
+        </div>
+
+        <div class="task-list" id="task-list">
+          <!-- Example task -->
+          <!--
+          <div class="task-item" data-task-id="10">
+            <input type="text" value="Finish project" class="task-name" />
+            <button class="delete-task">🗑</button>
+          </div>
+          -->
+        </div>
+
+        <!-- Add Task Input -->
+        <form id="add-task-form">
+          <input type="text" id="new-task-name" placeholder="New task..." required />
+          <button type="submit">+ Add Task</button>
+        </form>
+
+        <!-- Launch Pomodoro Button -->
+        <button id="start-pomodoro">Start Pomodoro with this Folder</button>
+      </div>
+    </section>
+
+    <!-- Folder Creation Modal -->
+<div id="create-folder-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Create New Folder</h2>
+    <input type="text" id="new-folder-name" placeholder="Folder Name" />
+    
+    <div class="color-options">
+      <label>Choose Color:</label>
+      <div class="color-palette">
+        <div class="color-swatch" data-color="#f08080" style="background:#f08080"></div>
+        <div class="color-swatch" data-color="#a29bfe" style="background:#a29bfe"></div>
+        <div class="color-swatch" data-color="#81ecec" style="background:#81ecec"></div>
+        <div class="color-swatch" data-color="#fab1a0" style="background:#fab1a0"></div>
+        <div class="color-swatch" data-color="#fdcb6e" style="background:#fdcb6e"></div>
+        <div class="color-swatch" data-color="#55efc4" style="background:#55efc4"></div>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button id="cancel-create">Cancel</button>
+      <button id="confirm-create">Create</button>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
