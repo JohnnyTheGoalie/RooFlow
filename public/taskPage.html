@@ -11,9 +11,11 @@
   
 
   <div class="top-left">
-      <a href="dashboard">
-      <img src="logo.png" alt="Logo" class="logo" />
-      </a>
+      <a href="dashboard" class="logo-container">
+  <img src="logo.png" alt="Logo" class="logo" />
+  <span class="logo-label">Dashboard</span>
+</a>
+
   </div>
         
     <div class="top-center">
@@ -48,9 +50,10 @@
           <div id="timer" hidden>00:00</div>
         </div>
         <div class="task-back" id="task-back">
-            <button id="keep-task">Keep Task</button>
-            <button id="delete-task">Delete Task</button>
-            <button id="add-time-btn">+10 Minutes</button>
+            <button id="keep-task" hidden>Keep Task</button>
+            <button id="delete-task" class="graduation-btn">
+                <span class="check-icon">✔</span> Finish Task</button>
+            <button id="add-time-btn">+10 min</button>
         </div>
       </div>
     </div>

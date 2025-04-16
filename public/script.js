@@ -211,15 +211,16 @@ addTimeBtn.addEventListener("click", (e) => {
 });
 
 
-keepTaskBtn.addEventListener("click", (e) => {
+/*keepTaskBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   archiveTask(true);
     graduationButtonClicked = true;
-});
+});*/
 
 deleteTaskBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   archiveTask(false);
+    launchConfetti();
     graduationButtonClicked = true;
 });
 
@@ -252,7 +253,7 @@ function launchConfetti() {
     confetti.style.left = `${Math.random() * 100}%`;
     confetti.style.animationDelay = `${Math.random() * 0.3}s`;
     document.body.appendChild(confetti);
-    setTimeout(() => confetti.remove(), 000);
+    setTimeout(() => confetti.remove(), 1000);
   }
 }
 
@@ -271,12 +272,7 @@ function archiveTask(keep) {
     clearInterval(timerInterval); // ⛔ Stop the timer
     taskBox.classList.add("task-completed"); // 🌫️ Gray out
 
-    taskBox.classList.add("celebrate");
-    launchConfetti();
-
-    setTimeout(() => {
-      taskBox.classList.remove("celebrate");
-    }, 1000);
+    
 
     
   if (hasGraduated) return;
@@ -333,7 +329,11 @@ taskList.addEventListener("click", (e) => {
         archiveTask(true);
       }
       graduationButtonClicked = false;
+      taskBox.classList.add("celebrate");
 
+    setTimeout(() => {
+      taskBox.classList.remove("celebrate");
+    }, 1000);
     // ✅ Handle timeline display *now* (after choosing new task)
       if(firstItemDeleted){
         const oldTask = document.createElement("div");

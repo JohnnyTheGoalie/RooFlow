@@ -37,6 +37,24 @@ function animateTaskIn(el) {
 }
 
 
+document.getElementById("logout-btn").addEventListener("click", async () => {
+  try {
+    const res = await fetch('/logout', {
+      method: 'POST', // or 'GET' depending on your server setup
+      credentials: 'include', // sends cookies/session info
+    });
+
+    if (res.ok) {
+      // redirect to login or homepage
+      window.location.href = '/login'; // adjust as needed
+    } else {
+      alert('Logout failed');
+    }
+  } catch (err) {
+    console.error('Logout error:', err);
+    alert('Something went wrong');
+  }
+});
 
 
 
