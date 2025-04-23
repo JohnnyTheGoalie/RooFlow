@@ -143,8 +143,9 @@ saveSettingsBtn.addEventListener("click", () => {
 
 
 function updateTimerDisplay() {
-  const minutes = Math.floor(timer / 60);
-  const seconds = timer % 60;
+        //JOVAN RUCNO MENJAO DISPLEJ
+  const minutes = Math.floor(((defaultTime*60) - timer) / 60);
+  const seconds = (defaultTime*60 - timer) % 60;
   timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
 }
 
